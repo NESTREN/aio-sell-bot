@@ -1,0 +1,17 @@
+﻿# Telegram bot token from @BotFather
+BOT_TOKEN=YOUR_TOKEN_BOT
+
+# CryptoBot / Crypto Pay API token
+CRYPTO_BOT_TOKEN=CRYPTO_PAY_API_TOKEN
+
+# Optional: Crypto Pay API base URL
+CRYPTO_BOT_API_URL=https://pay.crypt.bot/api
+
+# Asset for payments (USDT, BTC, TON, etc.)
+CRYPTO_ASSET=USDT
+
+# Admin Telegram IDs (comma separated)
+ADMIN_IDS=3154135153561351515
+
+# Path to sqlite database
+DB_PATH=bot.db
