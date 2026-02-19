@@ -1,13 +1,13 @@
-﻿from aiogram import Router, F
+from aiogram import Router, F
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
 
-from ..config import Config
-from ..db import Database
-from ..keyboards.reply import admin_menu, cancel_menu
-from ..keyboards.inline import (
+from config import Config
+from db import Database
+from keyboards.reply import admin_menu, cancel_menu
+from keyboards.inline import (
     admin_product_kb,
     admin_users_menu_kb,
     admin_users_list_kb,
@@ -15,9 +15,9 @@ from ..keyboards.inline import (
     admin_user_search_results_kb,
     admin_user_orders_kb,
 )
-from ..utils.formatters import parse_amount_to_cents, format_product, cents_to_amount
-from ..utils.callbacks import AdminProductCb, AdminUserPageCb, AdminUserActionCb
-from ..utils import texts
+from utils.formatters import parse_amount_to_cents, format_product, cents_to_amount
+from utils.callbacks import AdminProductCb, AdminUserPageCb, AdminUserActionCb
+from utils import texts
 
 router = Router()
 

@@ -1,15 +1,15 @@
-﻿import asyncio
+import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from .config import load_config
-from .db import Database
-from .crypto_pay import CryptoPayAPI
-from .middlewares import DbMiddleware, ConfigMiddleware, CryptoMiddleware
-from .handlers import common, user, admin
+from config import load_config
+from db import Database
+from crypto_pay import CryptoPayAPI
+from middlewares import DbMiddleware, ConfigMiddleware, CryptoMiddleware
+from handlers import common, user, admin
 
 
 async def main() -> None:

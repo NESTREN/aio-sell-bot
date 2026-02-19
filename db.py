@@ -1,4 +1,4 @@
-﻿import aiosqlite
+import aiosqlite
 from datetime import datetime, timezone
 from typing import Optional
 
@@ -15,6 +15,8 @@ class Database:
     async def connect(self) -> None:
         self.conn = await aiosqlite.connect(self.path)
         self.conn.row_factory = aiosqlite.Row
+        await self.conn.execute("PRAGMA foreign_keys = ON")
+        await self.conn.execute("PRAGMA journal_mode = WAL")
 
     async def close(self) -> None:
         if self.conn:
@@ -68,6 +70,19 @@ class Database:
                 paid_at TEXT,
                 FOREIGN KEY(user_id) REFERENCES users(id)
             );
+
+            CREATE INDEX IF NOT EXISTS idx_products_active_id
+                ON products(is_active, id DESC);
+            CREATE INDEX IF NOT EXISTS idx_orders_user_status_id
+                ON orders(user_id, status, id DESC);
+            CREATE INDEX IF NOT EXISTS idx_orders_invoice
+                ON orders(crypto_invoice_id);
+            CREATE INDEX IF NOT EXISTS idx_topups_user_status_id
+                ON topups(user_id, status, id DESC);
+            CREATE INDEX IF NOT EXISTS idx_topups_invoice
+                ON topups(crypto_invoice_id);
+            CREATE INDEX IF NOT EXISTS idx_users_username
+                ON users(username);
             """
         )
         await self.conn.commit()

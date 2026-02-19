@@ -1,6 +1,6 @@
-﻿from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from ..utils.callbacks import (
+from utils.callbacks import (
     ProductCb,
     CatalogPageCb,
     CatalogItemCb,
@@ -11,7 +11,7 @@ from ..utils.callbacks import (
     AdminUserPageCb,
     AdminUserActionCb,
 )
-from ..utils.formatters import cents_to_amount
+from utils.formatters import cents_to_amount
 
 
 def product_buy_kb(product_id: int) -> InlineKeyboardMarkup:

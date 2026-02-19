@@ -1,13 +1,13 @@
-﻿from aiogram import Router, F
+from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.context import FSMContext
 
-from ..db import Database
-from ..crypto_pay import CryptoPayAPI, CryptoPayError
-from ..keyboards.reply import cancel_menu
-from ..keyboards.inline import (
+from db import Database
+from crypto_pay import CryptoPayAPI, CryptoPayError
+from keyboards.reply import cancel_menu
+from keyboards.inline import (
     product_buy_kb,
     product_view_kb,
     catalog_list_kb,
@@ -16,7 +16,7 @@ from ..keyboards.inline import (
     profile_kb,
     topup_amounts_kb,
 )
-from ..utils.callbacks import (
+from utils.callbacks import (
     ProductCb,
     CatalogPageCb,
     CatalogItemCb,
@@ -24,8 +24,8 @@ from ..utils.callbacks import (
     CheckCb,
     TopupCb,
 )
-from ..utils.formatters import format_product, cents_to_amount, parse_amount_to_cents
-from ..utils import texts
+from utils.formatters import format_product, cents_to_amount, parse_amount_to_cents
+from utils import texts
 
 router = Router()
 
