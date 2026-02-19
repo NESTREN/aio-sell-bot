@@ -1,11 +1,11 @@
-﻿from aiogram import Router, F
+from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 
-from ..config import Config
-from ..db import Database
-from ..keyboards.reply import main_menu
-from ..utils import texts
+from config import Config
+from db import Database
+from keyboards.reply import main_menu
+from utils import texts
 
 router = Router()
 
